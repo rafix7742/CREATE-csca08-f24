@@ -9,13 +9,13 @@ or with any changes, are expressly prohibited.
 
 # Solution 1
 def search(lst: list[int], target: int) -> int:
-    """ Return the index of the target in the list lst, if not found, return -1
+    '''Return the index of the target in the list lst, if not found, return -1
 
     >>> search([1, 2, 3, 4], 3)
     2
     >>> search([1, 2, 3, 4], 5)
     -1
-    """
+    '''
 
     # Tip: before you start calculating, make sure that you can understand what the algorithm is doing
     #      If you cannot, visualize the algorithm with a simple example
@@ -38,7 +38,7 @@ def search(lst: list[int], target: int) -> int:
 
 # Solution 2
 def partial_sum(lst: list[int]) -> list[int]:
-    """ Return a list with same length as 'lst' in which each
+    '''Return a list with same length as 'lst' in which each
     item in the output is the sum of respective item in 'lst'
     and anything came before it
 
@@ -46,7 +46,7 @@ def partial_sum(lst: list[int]) -> list[int]:
     [1, 3, 6, 10]
     >>> partial_sum([1, 5, 2, 4, 5])
     [1, 6, 8, 12, 17]
-    """
+    '''
 
     result = []
 
@@ -63,7 +63,7 @@ def partial_sum(lst: list[int]) -> list[int]:
 
 # Solution 3  
 def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
-    """ Return a list of all unique pairs of numbers from the input list lst that add up to the target sum.
+    '''Return a list of all unique pairs of numbers from the input list lst that add up to the target sum.
 
     >>> find_pairs([1, 2, 3, 4, 5], 5)
     [(1, 4), (2, 3)]
@@ -71,7 +71,7 @@ def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
     [(1, 4), (2, 3)]
     >>> find_pairs([1, 1, 1], 2)
     [(1, 1)]
-    """
+    '''
 
     result = []
     for i in range(len(lst)): #runs n times where n is the length of the list

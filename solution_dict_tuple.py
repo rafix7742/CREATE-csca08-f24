@@ -14,7 +14,12 @@ contestants = {
     "Jennifer": [("Swimming",5.42), ("Biking", 8.59),("Running", 9.41)]
 }
 
-''' Need to create doc string'''
+'''Return the fastest contestant in the dict contestants for a given category category.
+    >>> fastest_individual_category(contestants, "Swimming")
+    'Dave'
+    >>> fastest_individual_category(contestants, "Biking")
+    'Zangeif'
+'''
 def fastest_individual_category(contestants: dict, category: str) -> str:
  
     # get an empty string for the contestant 
@@ -38,7 +43,10 @@ def fastest_individual_category(contestants: dict, category: str) -> str:
 
     return fastest_contestant
 
-''' Need to create docstring'''
+'''Return the total time for each contestant in the dict contestants.
+    >>> get_total_time(contestants)
+    [('Alice', 38.14), ('Bob', 26.0), ('Charlie', 30.9), ('Dave', 29.11), ('Steve', 26.13), ('Marley', 28.3), ('Zangeif', 19.68), ('Jennifer', 24.42)]  
+'''
 def get_total_time(contestants: dict) -> list[Tuple]:
 
     times = []
@@ -64,7 +72,10 @@ def get_total_time(contestants: dict) -> list[Tuple]:
     return times
 
 
-'''Need to create docstring'''
+'''Return the fastest contestant in the dict contestants.
+    >>> fastest_total_time(contestants)
+    'Zangeif'
+'''
 def fastest_total_time(contestants: dict) -> str:
 
     #Helper function to be created above

@@ -20,6 +20,7 @@ car_sample_database = {
     }
 END = "END"  # Marks the end of each customer's record
 SEP = ";"  # Separator for the customer data
+
 ''' 
 File Structure and Data Parsing:
 
