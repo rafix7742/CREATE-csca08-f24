@@ -1,4 +1,3 @@
-#complexity
 """CSCA08 Review Seminar (Nov 27th) by C.R.E.A.T.E. Club, time complexity questions
 
 This code is provided solely for the personal and private use of
@@ -10,7 +9,7 @@ or with any changes, are expressly prohibited.
 
 # Question 1
 def search(lst: list[int], target: int) -> int:
-    """ return the index of the target in the list, if not found, return -1
+    """ Return the index of the target in the list, if not found, return -1
 
     >>> search([1, 2, 3, 4], 3)
     2
@@ -32,9 +31,9 @@ def search(lst: list[int], target: int) -> int:
 
 # Question 2
 def partial_sum(lst: list[int]) -> list[int]:
-    """ return a list with same length as ‘lst’ in which each
-    Item in the output is the sum of respective item in ‘lst’
-    And anything came before it
+    """ Return a list with same length as 'lst' in which each
+    item in the output is the sum of respective item in 'lst'
+    and anything came before it
 
     >>> partial_sum([1, 2, 3, 4])
     [1, 3, 6, 10]
@@ -43,15 +42,17 @@ def partial_sum(lst: list[int]) -> list[int]:
     """
 
     result = []
+
     for i in range(len(lst)):
         result.append(lst[i])
         for j in range(i):
             result[-1] = result[-1] + lst[j]
+
     return result
 
 # Question 3  
 def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
-    """Return a list of all unique pairs of numbers from the input list that add up to the target sum.
+    """ Return a list of all unique pairs of numbers from the input list that add up to the target sum.
 
     >>> find_pairs([1, 2, 3, 4, 5], 5)
     [(1, 4), (2, 3)]
@@ -65,13 +66,11 @@ def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
     for i in range(len(lst)):
         for j in range(i + 1, len(lst)):
             if lst[i] + lst[j] == target:
-                # Avoid duplicates by ensuring that pairs are only added in one direction
                 if (lst[j], lst[i]) not in result: 
-                    result.append((lst[i], lst[j]))
+                    result.append((lst[i], lst[j])) #Ex: Why do we append like this?
     return result
-
-#WORK IN PROGRESS
 
 if __name__ == '__main__':
     print(partial_sum([1, 2, 3, 4]))
     print(search([1, 2, 3, 3, 4], 3))
+    print(find_pairs([1, 2, 3, 4, 5], 5))
