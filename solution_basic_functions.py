@@ -53,8 +53,22 @@ def palindrome_names(names: list[str]) -> list:
 
     return name_list
 
+def make_words_to_count(words: list[str]) -> dict[str,int]:
+    """Returns a dictionary that maps each word to the numer of times it appears in words,
+    >>> res = make_words_to_count(['abc','mme','abc','7'])
+    >>> res = {'abc': 2,'mme': 1,'7':1}
+    True
 
-
+    """
+    word_count = {}
+    # go over each word
+    for word in words:
+        #check if word is already in our dict
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    return word_count
 
 
 

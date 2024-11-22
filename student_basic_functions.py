@@ -34,3 +34,24 @@ ex. Hannah is a palindrome, !@$@! is a palindrome, Banana is not a palindrome
 def palindrome_names(names: list[str]) -> list:
     return
 
+
+
+'''Write the MINIMAL test set for this problem, do not have ANY redundant cases, you only need 5 total tests
+AFTER writing te minimal test set, complete the implementation of this function 
+(do not implement before writing the test set)
+'''
+def make_words_to_count(words: list[str]) -> dict[str,int]:
+    """Returns a dictionary that maps each word to the numer of times it appears in words,
+    >>> res = make_words_to_count(['abc','mme','abc','7'])
+    >>> res = {'abc': 2,'mme': 1,'7':1}
+    True
+
+    """
+
+
+
+'''Write the MINIMAL test set for this problem, do not have ANY redundant cases, you only need 6 total tests
+you do not need to implement this function, only write its tests
+'''
+def contains_in_list(lst: list[int], item: int) -> bool:
+    "Return true if and only if item appears in lst"
