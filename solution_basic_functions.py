@@ -73,4 +73,21 @@ def make_words_to_count(words: list[str]) -> dict[str,int]:
 
 
 
+def wacky_compare_nums(num1: int, num2: int) -> int:
+    if num1 == 0 and num2 == 0:  # Rule 4
+        return 328
+    elif num1 < 0 and num2 < 0:  # Rule 5
+        return 9
+    elif num1 < 0 or num2 < 0:  # Rule 6
+        return 12
+    elif num1 == num2:  # Rule 1
+        return -7
+    elif num1 == 0:  # Rule 2
+        return 4
+    elif num2 == 0:  # Rule 3
+        return 8
+    return 0
+
+
+
 
