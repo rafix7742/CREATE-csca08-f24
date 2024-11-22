@@ -1,9 +1,11 @@
-
 from typing import Tuple
 
-
-
-'''Need to come back and write docstrings'''
+'''Return the product of the last element of nums and the length of nums.
+    >>> sum_and_multiply([1, 2, 3])
+    9
+    >>> sum_and_multiply([5])
+    5
+'''
 def sum_and_multiply(nums: list[int]) -> int:
     total = 0
     multiplier = len(nums)
@@ -13,12 +15,22 @@ def sum_and_multiply(nums: list[int]) -> int:
 
 
 
-'''Need to come back and write docstrings'''
+'''Return if tuple student (name, GPA) has a GPA greater than 1.6.
+    >>> is_good_acedmic_standing(('Alice', 2.0))
+    True
+    >>> is_good_acedmic_standing(('Bob', 1.5))
+    False
+'''
 def is_good_acedmic_standing(student: Tuple[str,float]) -> bool:
     return student[1] > 1.6
 
 
-''' Need to come back and write docstrings'''
+''' Return the greatest common denominator of num1 and num2.
+    >>> greatest_common_denominator(8, 12)
+    4
+    >>> greatest_common_denominator(9, 3)
+    3
+'''
 def greatest_common_denominator(num1: int, num2: int) ->int:
 
     while num2 != 0:
@@ -28,7 +40,12 @@ def greatest_common_denominator(num1: int, num2: int) ->int:
     return abs(num1)
 
 
-'''Need to come back and write docstrings'''
+'''Return the items in the list names that are palindromes.
+    >>> palindrome_names(['Anna', 'Bob', 'Civic', 'David'])
+    ['Anna', 'Bob', 'Civic']
+    >>> palindrome_names(['Anna', 'Bob', 'Civic', 'David', 'racecar'])
+    ['Anna', 'Bob', 'Civic', 'racecar']
+'''
 def palindrome_names(names: list[str]) -> list:
 
     name_list = []
@@ -53,13 +70,13 @@ def palindrome_names(names: list[str]) -> list:
 
     return name_list
 
-def make_words_to_count(words: list[str]) -> dict[str,int]:
-    """Returns a dictionary that maps each word to the numer of times it appears in words,
+'''Return a dictionary that maps each word in words to the numer of times it appears in words.
     >>> res = make_words_to_count(['abc','mme','abc','7'])
-    >>> res = {'abc': 2,'mme': 1,'7':1}
-    True
-
-    """
+    res = {'abc': 2,'mme': 1,'7':1}
+    >>> make_words_to_count(['a', 'b', 'a'])
+    {'a': 2, 'b': 1}
+'''
+def make_words_to_count(words: list[str]) -> dict[str,int]:
     word_count = {}
     # go over each word
     for word in words:

@@ -1,10 +1,6 @@
-
-
-
 from typing import TextIO
 
-'''
-Helper function, i will write proper docstrings later
+'''Return a list of cars from the dict cars_dict. Each car is represented as a dict with the keys 'brand', 'model', 'price', 'color', and 'isforsale'.
 '''
 def parse_cars_data(cars_dict: dict) -> list:
 
@@ -28,7 +24,9 @@ def parse_cars_data(cars_dict: dict) -> list:
 
     return cars_list
 
-''' Helper function, i will write proper doc strings later'''
+'''Return a list of strings, each string containing information about a car that is for sale. 
+   Each string should be formatted as follows: "This car is a {color} {brand} {model}, it costs ${price}.
+'''
 def format_cars_for_sale(cars_dict: dict) -> list:
     #use helper to parse the data to make it easier to work with
     cars_list = parse_cars_data(cars_dict)
@@ -43,11 +41,9 @@ def format_cars_for_sale(cars_dict: dict) -> list:
     return formatted_list
 
 
-'''Will come back and write proper docstring
-
+'''Write information about cars that are for sale to the file at file_path.
 '''
 def write_cars_for_sale_to_file(cars_dict: dict, file_path: TextIO) -> None:
-
 
     formatted_cars = format_cars_for_sale(cars_dict)
     
