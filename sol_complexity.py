@@ -32,8 +32,8 @@ def search(lst: list[int], target: int) -> int:
 
     return -1 
     # this algo searches for a given target in the list. it traverses the entire list.
-    # thus, the time complexity is O(n) where n is the length of the list
-    # the best case is O(1), which is if the target is at the beginning or the end of the list
+    # thus, the time complexity is linear.
+    # best case: constant, which is if the target is at the beginning or the end of the list.
 
 
 # Solution 2
@@ -51,15 +51,16 @@ def partial_sum(lst: list[int]) -> list[int]:
     result = []
 
     for i in range(len(lst)): #runs n times
-        result.append(lst[i]) #takes O(1) time
+        result.append(lst[i]) #takes constant time
         for j in range(i): #runs i times where i is the index of the outer loop
-            result[-1] = result[-1] + lst[j] #takes O(1) time
+            result[-1] = result[-1] + lst[j] #takes constant time
 
     return result
     # this algo calculates the partial sum of the list. it traverses the entire list.
     # in total, the outer for loop will run n times
-    # inner for loop will run 1 + 2 + 3 + .... (n-1) times, which is equal to n(n-1)/2 => ( n^2 - n ) / 2 => O(n^2)
-    # think about: why is the time complexity O(n^2) and not O(n^3)? When would the time complexity be O(n^3)?
+    # inner for loop will run 1 + 2 + 3 + .... (n-1) times, which is equal to n(n-1)/2 => ( n^2 - n ) / 2 => quadratic   
+                                                                            #note: if calculations are not covered, i could use basic examples for Q2 and Q3 (ie one question for constant, one for linear, one for quadratic)
+    # think about: why is the time complexity quadratic and not more? When would the time complexity be bigger than quadratic?
 
 # Solution 3  
 def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
@@ -76,14 +77,14 @@ def find_pairs(lst: list[int], target: int) -> list[tuple[int, int]]:
     result = []
     for i in range(len(lst)): #runs n times where n is the length of the list
         for j in range(i + 1, len(lst)): # runs n - i - 1 times
-            if lst[i] + lst[j] == target: #takes O(1) time
+            if lst[i] + lst[j] == target: #takes constant time
                 if (lst[j], lst[i]) not in result: 
-                    result.append((lst[i], lst[j])) #To avoid duplicates #takes O(1) time
+                    result.append((lst[i], lst[j])) #To avoid duplicates! #takes constant time
     return result
     # Does this look familiar? this algo finds all the unique pairs of numbers that add up to the target sum.
     # in total, the outer for loop will run n times
-    # inner for loop will run n - 1 times for the first iteration, n - 2 times for the second iteration, and so on. n-1 + n-2 + n-3 + ... + 1 = n(n-1)/2 => O(n^2)
-    # similar to the question above, think about: why is the time complexity O(n^2) and not O(n^3)? When would the time complexity be O(n^3)?
+    # inner for loop will run n - 1 times for the first iteration, n - 2 times for the second iteration, and so on. n-1 + n-2 + n-3 + ... + 1 = n(n-1)/2 => quadratic
+    # similar to Q2, why is the time complexity quadratic?
 
 if __name__ == '__main__':
     print(partial_sum([1, 2, 3, 4]))
