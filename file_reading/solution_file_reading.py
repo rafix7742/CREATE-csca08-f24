@@ -43,10 +43,14 @@ The function will:
     Match customers with cars within their budget and preferred color(s).
     Return a list of dictionaries 'customers' representing each customer and their potential cars.
 
+Example format: 
+    [{'Name': 'JOHN DOE', 'Matched Cars': [{'Brand': 'Toyota', 'Model': 'Corolla', 'Price': 180000.0, 'Color': 'BLACK'}]}, 
+    {'Name': 'JANE DOE', 'Matched Cars': [{'Brand': 'Honda', 'Model': 'Civic', 'Price': 200000.0, 'Color': 'RED'}]}, 
+    {'Name': 'OLIVER SMITH', 'Matched Cars': []}]
 
 Notes:
     You are given constants for sepraating data from certain lines
-    You may look at the data in "customers.txt"
+    You may look at the data in "small_customers.txt"
 '''
 def parse_customers(file_name: str, car_database: dict) -> list:
 
@@ -117,5 +121,5 @@ def compare_cars(car_database: dict, budget: float, preferred_colors: list, bran
 
 
 # Load customer data and match cars
-customer_matches = parse_customers("customers.txt", CAR_DATABASE)
+customer_matches = parse_customers("file_reading/small_customers.txt", CAR_DATABASE)
 print(customer_matches)
