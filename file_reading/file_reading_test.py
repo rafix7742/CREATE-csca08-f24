@@ -1,5 +1,4 @@
 import unittest
-import os
 from tempfile import NamedTemporaryFile
 from solution_file_reading import parse_customers, compare_cars
 from cars_db import CAR_DATABASE
@@ -42,11 +41,11 @@ class TestCarMatching(unittest.TestCase):
         self.assertEqual(matched_cars, expected_result)
 
     def test_parse_customers_valid_file(self):
-        customer_data = """JOHN DOE; 200000; RED
+        customer_data = """JOHN DOE; 200000;
 Toyota
 BLACK
 END
-JANE DOE; 250000; BLACK
+JANE DOE; 250000;
 Honda
 BLACK
 END
@@ -77,9 +76,6 @@ END
 
         expected_result = [{'Name': 'OLIVER SMITH', 'Matched Cars': []}]
         self.assertEqual(customers, expected_result)
-
-        # Cleanup the temporary file
-        os.remove(temp_file_name)
 
 if __name__ == '__main__':
     unittest.main()
