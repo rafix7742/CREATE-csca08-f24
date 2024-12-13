@@ -46,7 +46,9 @@ The function will:
 Example format: 
     [{'Name': 'JOHN DOE', 'Matched Cars': [{'Brand': 'Toyota', 'Model': 'Corolla', 'Price': 180000.0, 'Color': 'BLACK'}]}, 
     {'Name': 'JANE DOE', 'Matched Cars': [{'Brand': 'Honda', 'Model': 'Civic', 'Price': 200000.0, 'Color': 'RED'}]}, 
-    {'Name': 'OLIVER SMITH', 'Matched Cars': []}]
+    {'Name': 'OLIVER SMITH', 'Matched Cars': []}, 
+    {'Name': 'OLIVIA LOPEZ', 'Matched Cars': [{'Brand': 'Nissan', 'Model': 'Altima', 'Price': 240000.0, 'Color': 'GRAY'}, 
+                                                {'Brand': 'Nissan', 'Model': 'Sentra', 'Price': 180000.0, 'Color': 'WHITE'}]}]
 
 Notes:
     You are given constants for sepraating data from certain lines
