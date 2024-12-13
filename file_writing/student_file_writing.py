@@ -1,6 +1,8 @@
 
 from typing import List, TextIO, Tuple
 
+from cars_db import CAR_DATABASE
+
 car_sample_database = {
         "Toyota": {
             "Corolla": (180000.0, "Black", True),
@@ -42,5 +44,13 @@ Any helper functions you create it is good practice to also write docstrings for
 '''
 def write_cars_for_sale_to_file(cars_dict: dict, file_path: TextIO) -> None:
     with open(file_path, 'w') as file:
-        print("this is a file at")
+        print("this is a file at "+ file_path)
     return
+
+
+# for your convienence
+# change the parameters to the sample db if you want small amounts of data
+if __name__ == "__main__":
+    output_file = "cars_for_sale.txt"
+    write_cars_for_sale_to_file(CAR_DATABASE, output_file)
+    print(f"Cars for sale have been written to {output_file}")

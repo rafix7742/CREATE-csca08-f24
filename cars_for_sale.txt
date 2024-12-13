@@ -1,4 +1,0 @@
-This car is a red Toyota Camry, it costs $30000.
-This car is a black Honda Civic, it costs $25000.
-This car is a white Honda Accord, it costs $27000.
-This car is a green Ford Fiesta, it costs $15000.

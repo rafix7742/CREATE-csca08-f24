@@ -1,5 +1,7 @@
 from typing import TextIO
 
+from cars_db import CAR_DATABASE
+
 '''Return a list of cars from the dict cars_dict. Each car is represented as a dict with the keys 'brand', 'model', 'price', 'color', and 'isforsale'.
 '''
 def parse_cars_data(cars_dict: dict) -> list:
@@ -54,3 +56,10 @@ def write_cars_for_sale_to_file(cars_dict: dict, file_path: TextIO) -> None:
             # we have already formatted the strings so no more work is needed
             file.write(formatted_cars[index] + '\n')
             index += 1
+
+
+
+if __name__ == "__main__":
+    output_file = "cars_for_sale.txt"
+    write_cars_for_sale_to_file(CAR_DATABASE, output_file)
+    print(f"Cars for sale have been written to {output_file}")

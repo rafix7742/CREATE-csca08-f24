@@ -1,5 +1,7 @@
 from typing import TextIO
 
+from cars_db import CAR_DATABASE
+
 
 car_sample_database = {
         "Toyota": {
