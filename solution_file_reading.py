@@ -46,61 +46,76 @@ The function will:
 
 Notes:
     You are given constants for sepraating data from certain lines
-    You may look at the data in "insert file name"
+    You may look at the data in "customers.txt"
 '''
-def parse_customers(data_file: TextIO, car_database: dict) -> list:
+def parse_customers(file_name: str, car_database: dict) -> list:
 
     # List to store customer dictionaries
     customers = []
 
-    with open(data_file, 'r') as file:
+    # Open the file for reading
+    with open(file_name, 'r') as file:
         lines = file.readlines()
 
     # Parse the customer data
     i = 0
     while i < len(lines):
 
-        # Split the current line into name and budget
-        customer_data = lines[i].split(SEP)
+        # Read customer name and budget
+        customer_data = lines[i].strip().split(SEP)
         name = customer_data[0].strip()
-        budget = int(customer_data[1].strip())
-        brand = lines[i+1].strip()
-        
-
-        ###########################
-        # could probably be a helper
-        # Get the preferred colors (can be one or more colors)
-        preferred_colors = []
+        budget = float(customer_data[1].strip())
         i += 1
-        while i < len(lines) and lines[i] != END:
-            preferred_colors.append(lines[i].strip())  # Add color to the list
+
+        # Read preferred brand
+        brand = lines[i].strip()
+        i += 1
+
+        #####################################
+        # Collect preferred colors - could be a helper
+        preferred_colors = []
+        while i < len(lines) and lines[i].strip() != END:
+            preferred_colors.append(lines[i].strip())
             i += 1
-        ###########################
-        
-        # Find matching cars for the customer
+        #####################################
+
+        # Skip the "END" line
+        i += 1
+
+        # Match cars for the customer
         matched_cars = compare_cars(car_database, budget, preferred_colors, brand)
 
         # Append the customer's dictionary
         customers.append({"Name": name, "Matched Cars": matched_cars})
 
-        # Skip the "END" line
-        i += 1
-
     return customers
-
 
 def compare_cars(car_database: dict, budget: float, preferred_colors: list, brand: str) -> list:
     matched_cars = []
-    # get all of the brands
-    for brands in car_database.keys():
-        #get all of the models of a specific brand
-        for model in car_database[brands].keys(): 
-            # we use key,key,idx for the brand,model and then the price or colour
-            price = car_database[brands][model][0]
-            car_color = car_database[brands][model][1]
 
-            # Check if the car's price is within the budget and the color is one of the preferred colors
-            if price <= budget and car_color in preferred_colors and brands.lower() == brand.lower():
-                matched_cars.append({"Brand": brand, "Model": model})
+    # Standardize the brand name
+    brand = brand.title()
+
+    # Check if the brand exists in the car database
+    if brand in car_database:
+        # Loop through the models of the specified brand
+        for model in car_database[brand]:
+            # Extract the car's details
+            car_details = car_database[brand][model]
+            price = car_details[0]
+            color = car_details[1].upper()
+            for_sale = car_details[2]
+
+            # Check if the car matches the criteria
+            if price <= budget:
+                if color in preferred_colors:
+                    if for_sale:
+                        # Add the car to the matched list
+                        matched_cars.append({"Brand": brand, "Model": model, "Price": price, "Color": color})
 
     return matched_cars
+
+
+# Load customer data and match cars
+customer_matches = parse_customers("customers.txt", CAR_DATABASE)
+print(customer_matches)
